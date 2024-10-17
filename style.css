@@ -1,0 +1,58 @@
+body{
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+}
+
+h1{
+    margin-bottom: 20px;
+}
+
+button{
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.memory-game{
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    margin: 20px;
+}
+
+.card{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform: scale(1);
+    cursor: pointer;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.card.flipped{
+    transform: rotateY(180deg);
+}
+
+.card .front,
+.card .back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.card .front{
+    background: #fff;
+}
+
+.card .back{
+    background: #2e86de;
+    transform: rotate(180deg);
+}
