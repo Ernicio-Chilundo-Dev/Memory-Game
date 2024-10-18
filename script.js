@@ -1,6 +1,6 @@
 const cardImages = [
-    'img1.png', 'img2.png', 'img3.png', 'img4.png',
-    'img5.png', 'img6.png', 'img7.png', 'img8.png'
+    'img/img1.png', 'img/img2.png', 'img/img3.png', 'img/img4.png',
+    'img/img5.png', 'img/img6.png', 'img/img7.png', 'img/img8.png'
 ];
 
 let cardsArray = [...cardImages, ...cardImages];
@@ -22,27 +22,42 @@ function createBoard(){
         card.dataset.image = image;
         card.innerHTML = `
         <div class="front"></div>
-        div class="back" style="backgroud-image: url(${image});"></div>
+        <div class="back" style="background-image: url(${image});"></div>
         `;
         card.addEventListener("click", flipCard);
             memoryGame.appendChild(card);
-        
+
     })
 }
 
-function flipCard(){
-if(lockboard) return;
-if(this === firstCard) return;
+function flipCard() {
+    if (lockboard) return;
+    if (this === firstCard) return;
 
-this.classList.add("flipped");
-if(!firstCard){
-    firstCard = this;
-    return;
+    this.classList.add("flipped");
+
+    if (!firstCard) {
+        firstCard = this;
+        return;
+    }
+
+    secondCard = this;
+    checkForMatch();
 }
 
-secondCard = this;
-checkForMatch();
-}
+// function flipCard(){
+// if(lockboard) return;
+// if(this === firstCard) return;
+
+// this.classList.add("flipped");
+// if(!firstCard){
+//     firstCard = this;
+//     return;
+// }
+
+// secondCard = this;
+// checkForMatch();
+// }
 
 function checkForMatch(){
     const isMatch = firstCard.dataset.image === secondCard.dataset.image;

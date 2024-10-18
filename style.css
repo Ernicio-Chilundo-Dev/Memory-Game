@@ -4,18 +4,36 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #f0f0f0;
+    background-image: url('img/background.webp');
 }
 
 h1{
-    margin-bottom: 20px;
+    margin-bottom: .2px;
 }
+
+
 
 button{
     margin-bottom: 20px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    color: #000;
+    background-color: #95c054;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+button:hover{
+    background-color: #2e86de;
+}
+
+h1{
+    color: antiquewhite;
+}
+
+p{
+    color: antiquewhite;
 }
 
 .memory-game{
@@ -35,8 +53,8 @@ button{
     transform-style: preserve-3d;
 }
 
-.card.flipped{
-    transform: rotateY(180deg);
+.card.flipped .front{
+    transform: rotateY(0);
 }
 
 .card .front,
@@ -48,11 +66,26 @@ button{
     border-radius: 10px;
 }
 
-.card .front{
-    background: #fff;
+.card .front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/verso.png'); /* o verso da carta */
+    background-size: cover;
+    background-position: center;
+    backface-visibility: hidden;
+}
+.card .back {
+    background: #2e86de;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(180deg);
+}
+.card.flipped{
+    transform: rotateY(180deg);
 }
 
-.card .back{
-    background: #2e86de;
-    transform: rotate(180deg);
-}
