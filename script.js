@@ -45,20 +45,6 @@ function flipCard() {
     checkForMatch();
 }
 
-// function flipCard(){
-// if(lockboard) return;
-// if(this === firstCard) return;
-
-// this.classList.add("flipped");
-// if(!firstCard){
-//     firstCard = this;
-//     return;
-// }
-
-// secondCard = this;
-// checkForMatch();
-// }
-
 function checkForMatch(){
     const isMatch = firstCard.dataset.image === secondCard.dataset.image;
     isMatch? disableCards() : unflipCards();
